@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0F45BD45-77DB-41B3-B8A5-200803488D9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{15228815-0810-45A0-B61A-855377924346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Domain", "src\AspNetCoreStarterKit.Domain\AspNetCoreStarterKit.Domain.csproj", "{495000F3-ECED-4A19-B9E8-67EE71724F0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{495000F3-ECED-4A19-B9E8-67EE71724F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495000F3-ECED-4A19-B9E8-67EE71724F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495000F3-ECED-4A19-B9E8-67EE71724F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495000F3-ECED-4A19-B9E8-67EE71724F0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{15228815-0810-45A0-B61A-855377924346} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
+		{495000F3-ECED-4A19-B9E8-67EE71724F0D} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65DE3DF4-9F06-412D-9C6D-2D9FF14C9FB4}
+	EndGlobalSection
+EndGlobal
