@@ -1,9 +1,13 @@
+using System;
+using System.Text;
+using AspNetCoreStarterKit.Application.Extensions;
 using AspNetCoreStarterKit.Domain.Entities.Authorization;
 using AspNetCoreStarterKit.Domain.StaticData.Authorization;
 using AspNetCoreStarterKit.EntityFramework;
 using AspNetCoreStarterKit.WebApi.Infrastructure.ActionFilters;
 using AspNetCoreStarterKit.WebApi.Infrastructure.Authentication;
 using AspNetCoreStarterKit.WebApi.Infrastructure.Configurations;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,12 +16,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
 namespace AspNetCoreStarterKit.WebApi
 {
     public class Startup
     {
+        private static SymmetricSecurityKey _signingKey;
+        private static JwtTokenConfiguration _jwtTokenConfiguration;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -52,6 +60,57 @@ namespace AspNetCoreStarterKit.WebApi
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(AppConfig.App_CorsOriginPolicyName,
+                    builder =>
+                        builder.WithOrigins(AppConfig.App_CorsOrigins
+                                .Split(",", StringSplitOptions.RemoveEmptyEntries))
+                            .AllowAnyHeader()
+                            .AllowAnyMethod());
+            });
+
+            _signingKey =
+                new SymmetricSecurityKey(
+                    Encoding.ASCII.GetBytes(AppConfig.Authentication_JwtBearer_SecurityKey));
+
+            _jwtTokenConfiguration = new JwtTokenConfiguration
+            {
+                Issuer = AppConfig.Authentication_JwtBearer_Issuer,
+                Audience = AppConfig.Authentication_JwtBearer_Audience,
+                SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256),
+                StartDate = DateTime.UtcNow,
+                EndDate = DateTime.UtcNow.AddDays(60),
+            };
+
+            services.Configure<JwtTokenConfiguration>(config =>
+            {
+                config.Audience = _jwtTokenConfiguration.Audience;
+                config.EndDate = _jwtTokenConfiguration.EndDate;
+                config.Issuer = _jwtTokenConfiguration.Issuer;
+                config.StartDate = _jwtTokenConfiguration.StartDate;
+                config.SigningCredentials = _jwtTokenConfiguration.SigningCredentials;
+            });
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(jwtBearerOptions =>
+            {
+                jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateActor = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = _jwtTokenConfiguration.Issuer,
+                    ValidAudience = _jwtTokenConfiguration.Audience,
+                    IssuerSigningKey = _signingKey
+                };
+            });
+
+            services.ConfigureApplicationService();
             services.AddScoped<IAuthorizationHandler, PermissionHandler>();
             services.AddScoped<UnitOfWorkActionFilter>();
         }
