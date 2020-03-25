@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreStarterKit.Domain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Application", "src\AspNetCoreStarterKit.Application\AspNetCoreStarterKit.Application.csproj", "{80641B08-E98D-4245-B7B5-F2D0477B0407}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.EntityFramework", "src\AspNetCoreStarterKit.EntityFramework\AspNetCoreStarterKit.EntityFramework.csproj", "{899786AB-16F7-4734-B3FF-4F2C8A8B22B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{80641B08-E98D-4245-B7B5-F2D0477B0407}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80641B08-E98D-4245-B7B5-F2D0477B0407}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80641B08-E98D-4245-B7B5-F2D0477B0407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{899786AB-16F7-4734-B3FF-4F2C8A8B22B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{899786AB-16F7-4734-B3FF-4F2C8A8B22B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{899786AB-16F7-4734-B3FF-4F2C8A8B22B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{899786AB-16F7-4734-B3FF-4F2C8A8B22B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -33,6 +39,7 @@ Global
 		{15228815-0810-45A0-B61A-855377924346} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
 		{495000F3-ECED-4A19-B9E8-67EE71724F0D} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
 		{80641B08-E98D-4245-B7B5-F2D0477B0407} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
+		{899786AB-16F7-4734-B3FF-4F2C8A8B22B3} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65DE3DF4-9F06-412D-9C6D-2D9FF14C9FB4}
