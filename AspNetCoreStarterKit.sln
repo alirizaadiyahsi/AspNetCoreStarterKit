@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0F45BD45-77D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{15228815-0810-45A0-B61A-855377924346}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Domain", "src\AspNetCoreStarterKit.Domain\AspNetCoreStarterKit.Domain.csproj", "{495000F3-ECED-4A19-B9E8-67EE71724F0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreStarterKit.Domain", "src\AspNetCoreStarterKit.Domain\AspNetCoreStarterKit.Domain.csproj", "{495000F3-ECED-4A19-B9E8-67EE71724F0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Application", "src\AspNetCoreStarterKit.Application\AspNetCoreStarterKit.Application.csproj", "{80641B08-E98D-4245-B7B5-F2D0477B0407}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{495000F3-ECED-4A19-B9E8-67EE71724F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{495000F3-ECED-4A19-B9E8-67EE71724F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{495000F3-ECED-4A19-B9E8-67EE71724F0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80641B08-E98D-4245-B7B5-F2D0477B0407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80641B08-E98D-4245-B7B5-F2D0477B0407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80641B08-E98D-4245-B7B5-F2D0477B0407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80641B08-E98D-4245-B7B5-F2D0477B0407}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,6 +32,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{15228815-0810-45A0-B61A-855377924346} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
 		{495000F3-ECED-4A19-B9E8-67EE71724F0D} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
+		{80641B08-E98D-4245-B7B5-F2D0477B0407} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65DE3DF4-9F06-412D-9C6D-2D9FF14C9FB4}
