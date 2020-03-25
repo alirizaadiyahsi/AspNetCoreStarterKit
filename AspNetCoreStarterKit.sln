@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{1522
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreStarterKit.Domain", "src\AspNetCoreStarterKit.Domain\AspNetCoreStarterKit.Domain.csproj", "{495000F3-ECED-4A19-B9E8-67EE71724F0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Application", "src\AspNetCoreStarterKit.Application\AspNetCoreStarterKit.Application.csproj", "{80641B08-E98D-4245-B7B5-F2D0477B0407}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreStarterKit.Application", "src\AspNetCoreStarterKit.Application\AspNetCoreStarterKit.Application.csproj", "{80641B08-E98D-4245-B7B5-F2D0477B0407}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.EntityFramework", "src\AspNetCoreStarterKit.EntityFramework\AspNetCoreStarterKit.EntityFramework.csproj", "{899786AB-16F7-4734-B3FF-4F2C8A8B22B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreStarterKit.EntityFramework", "src\AspNetCoreStarterKit.EntityFramework\AspNetCoreStarterKit.EntityFramework.csproj", "{899786AB-16F7-4734-B3FF-4F2C8A8B22B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
