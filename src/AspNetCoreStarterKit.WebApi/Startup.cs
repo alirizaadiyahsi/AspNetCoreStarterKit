@@ -3,6 +3,7 @@ using AspNetCoreStarterKit.Domain.StaticData.Authorization;
 using AspNetCoreStarterKit.EntityFramework;
 using AspNetCoreStarterKit.WebApi.Infrastructure.ActionFilters;
 using AspNetCoreStarterKit.WebApi.Infrastructure.Authentication;
+using AspNetCoreStarterKit.WebApi.Infrastructure.Configurations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,11 +25,10 @@ namespace AspNetCoreStarterKit.WebApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AspNetCoreStarterKitDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                options.UseSqlServer(Configuration.GetConnectionString(AppConfig.DefaultConnection))
                     .UseLazyLoadingProxies());
 
             services.AddIdentity<User, Role>()
@@ -56,7 +56,6 @@ namespace AspNetCoreStarterKit.WebApi
             services.AddScoped<UnitOfWorkActionFilter>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -64,12 +63,17 @@ namespace AspNetCoreStarterKit.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Nucleus API V1");
+            });
+
+            app.UseCors(AppConfig.App_CorsOriginPolicyName);
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
