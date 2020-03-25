@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using AspNetCoreStarterKit.Application.Email;
 using AspNetCoreStarterKit.Application.Extensions;
 using AspNetCoreStarterKit.Domain.Entities.Authorization;
 using AspNetCoreStarterKit.Domain.StaticData.Authorization;
@@ -126,6 +127,8 @@ namespace AspNetCoreStarterKit.WebApi
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
             });
 
+            services.Configure<EmailSettings>(Configuration.GetSection(AppConfig.Email_Smtp));
+            services.AddSingleton<IEmailSender, EmailSender>();
             services.ConfigureApplicationService();
             services.AddScoped<IAuthorizationHandler, PermissionHandler>();
             services.AddScoped<UnitOfWorkActionFilter>();

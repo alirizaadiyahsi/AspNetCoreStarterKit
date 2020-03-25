@@ -25,7 +25,7 @@ namespace AspNetCoreStarterKit.EntityFramework
             modelBuilder.Entity<UserLogin>().ToTable("UserLogin");
             modelBuilder.Entity<RoleClaim>().ToTable("RoleClaim");
             modelBuilder.Entity<UserToken>().ToTable("UserToken");
-            modelBuilder.Entity<OrganizationUnit>().ToTable("UserToken");
+            modelBuilder.Entity<OrganizationUnit>().ToTable("OrganizationUnit");
 
             modelBuilder.Entity((Action<EntityTypeBuilder<UserRole>>)(b =>
             {

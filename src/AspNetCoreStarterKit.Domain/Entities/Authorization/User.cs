@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using AspNetCoreStarterKit.Domain.Entities.Auditing;
 using AspNetCoreStarterKit.Domain.Entities.OrganizationUnits;
 using Microsoft.AspNetCore.Identity;
 
 namespace AspNetCoreStarterKit.Domain.Entities.Authorization
 {
-    public class User : IdentityUser<Guid>, IFullAudited
+    public class User : IdentityUser<Guid>
     {
         public string FirstName { get; set; }
 
@@ -29,12 +28,6 @@ namespace AspNetCoreStarterKit.Domain.Entities.Authorization
         public Guid? DeleterUserId { get; set; }
 
         public DateTime? DeletionTime { get; set; }
-
-        public virtual User CreatorUser { get; set; }
-
-        public virtual User ModifierUser { get; set; }
-
-        public virtual User DeleterUser { get; set; }
 
         public virtual ICollection<UserClaim> Claims { get; set; }
 
