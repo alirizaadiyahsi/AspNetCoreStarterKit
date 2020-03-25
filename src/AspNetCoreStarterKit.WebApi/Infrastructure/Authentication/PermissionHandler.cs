@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
+using AspNetCoreStarterKit.Application.Authorization.Permissions;
 using Microsoft.AspNetCore.Authorization;
-using WebApiBestPractices.Application.Identity.Permissions;
 
-namespace WebApiBestPractices.WebApi.Core.Authentication
+namespace AspNetCoreStarterKit.WebApi.Infrastructure.Authentication
 {
     public class PermissionHandler : AuthorizationHandler<PermissionRequirement>
     {

@@ -2,6 +2,7 @@ using AspNetCoreStarterKit.Domain.Entities.Authorization;
 using AspNetCoreStarterKit.Domain.StaticData.Authorization;
 using AspNetCoreStarterKit.EntityFramework;
 using AspNetCoreStarterKit.WebApi.Infrastructure.ActionFilters;
+using AspNetCoreStarterKit.WebApi.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-using WebApiBestPractices.WebApi.Core.Authentication;
 
 namespace AspNetCoreStarterKit.WebApi
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace WebApiBestPractices.WebApi.Core.Authentication
+namespace AspNetCoreStarterKit.WebApi.Infrastructure.Authentication
 {
     public class PermissionRequirement : IAuthorizationRequirement
     {

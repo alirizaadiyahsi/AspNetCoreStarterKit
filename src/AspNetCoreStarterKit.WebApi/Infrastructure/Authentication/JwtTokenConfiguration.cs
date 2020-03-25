@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.IdentityModel.Tokens;
 
-namespace WebApiBestPractices.WebApi.Core.Authentication
+namespace AspNetCoreStarterKit.WebApi.Infrastructure.Authentication
 {
     public class JwtTokenConfiguration
     {
