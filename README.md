@@ -2,9 +2,6 @@
 
 Modular monolithic Web API startup template.
 
-<br/>
-<br/>
-
 ## Requirements
 
 - Visual Studio 2019 v16.3 or later **for Windows**.
