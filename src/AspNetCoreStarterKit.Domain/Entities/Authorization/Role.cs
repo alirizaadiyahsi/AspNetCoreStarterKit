@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using AspNetCoreStarterKit.Domain.Entities.Auditing;
+﻿using AspNetCoreStarterKit.Domain.Entities.Auditing;
 using AspNetCoreStarterKit.Domain.Entities.OrganizationUnits;
 using Microsoft.AspNetCore.Identity;
+using System;
+using System.Collections.Generic;
 
 namespace AspNetCoreStarterKit.Domain.Entities.Authorization
 {

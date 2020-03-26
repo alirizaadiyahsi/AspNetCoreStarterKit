@@ -1,6 +1,6 @@
-﻿using System;
+﻿using AspNetCoreStarterKit.Domain.Entities.Auditing;
+using System;
 using System.Collections.Generic;
-using AspNetCoreStarterKit.Domain.Entities.Auditing;
 
 namespace AspNetCoreStarterKit.Domain.Entities.OrganizationUnits
 {

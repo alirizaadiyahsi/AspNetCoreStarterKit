@@ -1,10 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using AutoMapper;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace AspNetCoreStarterKit.Application.Extensions
 {

@@ -8,6 +8,6 @@
         public static string Authentication_JwtBearer_Issuer = "Authentication:JwtBearer:Issuer";
         public static string Authentication_JwtBearer_Audience = "Authentication:JwtBearer:Audience";
         public static string DefaultConnection = "DefaultConnection";
-        public static string Email_Smtp ="Email:Smtp";
+        public static string Email_Smtp = "Email:Smtp";
     }
 }

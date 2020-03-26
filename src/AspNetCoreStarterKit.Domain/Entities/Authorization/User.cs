@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using AspNetCoreStarterKit.Domain.Entities.OrganizationUnits;
+﻿using AspNetCoreStarterKit.Domain.Entities.OrganizationUnits;
 using Microsoft.AspNetCore.Identity;
+using System;
+using System.Collections.Generic;
 
 namespace AspNetCoreStarterKit.Domain.Entities.Authorization
 {
@@ -9,7 +9,7 @@ namespace AspNetCoreStarterKit.Domain.Entities.Authorization
     {
         public string FirstName { get; set; }
 
-        public string LastName{ get; set; }
+        public string LastName { get; set; }
 
         public string Phone { get; set; }
 

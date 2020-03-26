@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using AspNetCoreStarterKit.EntityFramework;
+﻿using AspNetCoreStarterKit.EntityFramework;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace AspNetCoreStarterKit.WebApi.Infrastructure.ActionFilters
 {
@@ -17,7 +17,7 @@ namespace AspNetCoreStarterKit.WebApi.Infrastructure.ActionFilters
         public override void OnActionExecuted(ActionExecutedContext context)
         {
             if (context.Exception != null || !context.ModelState.IsValid) return;
-            
+
             try
             {
                 _dbContext.SaveChanges();

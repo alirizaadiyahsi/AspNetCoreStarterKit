@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using AspNetCoreStarterKit.Application.Authorization.Permissions;
+﻿using AspNetCoreStarterKit.Application.Authorization.Permissions;
 using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
 
 namespace AspNetCoreStarterKit.WebApi.Infrastructure.Authentication
 {

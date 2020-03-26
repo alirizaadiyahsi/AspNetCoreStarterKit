@@ -1,7 +1,7 @@
-﻿using System.Globalization;
-using System.Linq;
-using AspNetCoreStarterKit.Domain.Entities.Authorization;
+﻿using AspNetCoreStarterKit.Domain.Entities.Authorization;
 using AspNetCoreStarterKit.Domain.StaticData.Authorization;
+using System.Globalization;
+using System.Linq;
 
 namespace AspNetCoreStarterKit.EntityFramework.DataSeeder
 {

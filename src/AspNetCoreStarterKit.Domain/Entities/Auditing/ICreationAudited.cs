@@ -1,5 +1,5 @@
-﻿using System;
-using AspNetCoreStarterKit.Domain.Entities.Authorization;
+﻿using AspNetCoreStarterKit.Domain.Entities.Authorization;
+using System;
 
 namespace AspNetCoreStarterKit.Domain.Entities.Auditing
 {

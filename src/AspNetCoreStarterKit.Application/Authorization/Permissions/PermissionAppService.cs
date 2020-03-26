@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using AspNetCoreStarterKit.Domain.Entities.Authorization;
+﻿using AspNetCoreStarterKit.Domain.Entities.Authorization;
 using AspNetCoreStarterKit.Domain.StaticData.Authorization;
 using Microsoft.AspNetCore.Identity;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AspNetCoreStarterKit.Application.Authorization.Permissions
 {

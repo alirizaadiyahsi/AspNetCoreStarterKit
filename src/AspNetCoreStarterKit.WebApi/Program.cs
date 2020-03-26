@@ -1,13 +1,11 @@
-using System;
-using AspNetCoreStarterKit.Domain.Entities.Authorization;
 using AspNetCoreStarterKit.EntityFramework;
 using AspNetCoreStarterKit.EntityFramework.DataSeeder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
+using System;
 
 namespace AspNetCoreStarterKit.WebApi
 {

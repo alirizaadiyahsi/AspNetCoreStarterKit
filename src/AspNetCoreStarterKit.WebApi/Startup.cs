@@ -1,5 +1,3 @@
-using System;
-using System.Text;
 using AspNetCoreStarterKit.Application.Email;
 using AspNetCoreStarterKit.Application.Extensions;
 using AspNetCoreStarterKit.Domain.Entities.Authorization;
@@ -21,6 +19,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Filters;
+using System;
+using System.Text;
 
 namespace AspNetCoreStarterKit.WebApi
 {

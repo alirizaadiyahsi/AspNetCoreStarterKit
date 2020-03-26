@@ -1,9 +1,9 @@
-﻿using System;
-using AspNetCoreStarterKit.Domain.Entities.Authorization;
+﻿using AspNetCoreStarterKit.Domain.Entities.Authorization;
 using AspNetCoreStarterKit.Domain.Entities.OrganizationUnits;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace AspNetCoreStarterKit.EntityFramework
 {
