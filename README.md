@@ -1,4 +1,4 @@
-# Asp Net Core Starte rKit
+# Asp Net Core Starter Kit
 
 Modular monolithic Web API startup template.
 
