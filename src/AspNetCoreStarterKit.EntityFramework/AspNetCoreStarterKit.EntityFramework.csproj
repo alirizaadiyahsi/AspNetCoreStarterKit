@@ -19,4 +19,8 @@
     <ProjectReference Include="..\AspNetCoreStarterKit.Domain\AspNetCoreStarterKit.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
