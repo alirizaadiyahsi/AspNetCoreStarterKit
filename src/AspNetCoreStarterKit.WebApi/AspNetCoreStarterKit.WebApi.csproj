@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AspNetCoreStarterKit.Application\AspNetCoreStarterKit.Application.csproj" />
     <ProjectReference Include="..\AspNetCoreStarterKit.EntityFramework\AspNetCoreStarterKit.EntityFramework.csproj" />
+    <ProjectReference Include="..\AspNetCoreStarterKit.WebApi.Core\AspNetCoreStarterKit.WebApi.Core.csproj" />
   </ItemGroup>
 
 

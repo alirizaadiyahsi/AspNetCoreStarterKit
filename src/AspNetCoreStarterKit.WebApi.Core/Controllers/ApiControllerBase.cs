@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace AspNetCoreStarterKit.WebApi.Infrastructure.Controllers
+namespace AspNetCoreStarterKit.WebApi.Core.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     [Produces("application/json")]
-    public class ApiControllerBase : Controller
+    public class ApiControllerBase : ControllerBase
     {
     }
 }
