@@ -55,9 +55,9 @@ namespace AspNetCoreStarterKit.WebApi
                 }
             });
 
-            services.AddControllers(setup =>
+            services.AddControllers(options =>
             {
-                setup.Filters.AddService<UnitOfWorkActionFilter>();
+                options.Filters.AddService<UnitOfWorkActionFilter>();
             }).AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;

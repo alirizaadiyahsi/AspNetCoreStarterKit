@@ -17,7 +17,7 @@ namespace AspNetCoreStarterKit.Domain.Entities.Authorization
 
         public DateTime CreationTime { get; set; }
 
-        public Guid CreatorUserId { get; set; }
+        public Guid? CreatorUserId { get; set; }
 
         public DateTime? ModificationTime { get; set; }
 

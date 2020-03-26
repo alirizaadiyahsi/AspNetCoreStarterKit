@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\AspNetCoreStarterKit.WebApi.Core\AspNetCoreStarterKit.WebApi.Core.csproj" />
+  </ItemGroup>
+
 </Project>

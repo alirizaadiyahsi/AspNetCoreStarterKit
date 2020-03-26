@@ -33,11 +33,13 @@ namespace AspNetCoreStarterKit.EntityFramework
 
                 b.HasOne(ur => ur.User)
                     .WithMany(u => u.UserRoles)
-                    .HasForeignKey(ur => ur.UserId);
+                    .HasForeignKey(ur => ur.UserId)
+                    .OnDelete(DeleteBehavior.NoAction);;
 
                 b.HasOne(ur => ur.Role)
                     .WithMany(r => r.UserRoles)
-                    .HasForeignKey(ur => ur.RoleId);
+                    .HasForeignKey(ur => ur.RoleId)
+                    .OnDelete(DeleteBehavior.NoAction);
             }));
 
             modelBuilder.Entity((Action<EntityTypeBuilder<OrganizationUnitUser>>)(b =>
@@ -46,11 +48,13 @@ namespace AspNetCoreStarterKit.EntityFramework
 
                 b.HasOne(ur => ur.User)
                     .WithMany(u => u.OrganizationUnitUsers)
-                    .HasForeignKey(ur => ur.UserId);
+                    .HasForeignKey(ur => ur.UserId)
+                    .OnDelete(DeleteBehavior.NoAction);
 
                 b.HasOne(ur => ur.OrganizationUnit)
                     .WithMany(r => r.OrganizationUnitUsers)
-                    .HasForeignKey(ur => ur.OrganizationUnitId);
+                    .HasForeignKey(ur => ur.OrganizationUnitId)
+                    .OnDelete(DeleteBehavior.NoAction);
             }));
 
             modelBuilder.Entity((Action<EntityTypeBuilder<OrganizationUnitRole>>)(b =>
@@ -59,11 +63,13 @@ namespace AspNetCoreStarterKit.EntityFramework
 
                 b.HasOne(ur => ur.Role)
                     .WithMany(u => u.OrganizationUnitRoles)
-                    .HasForeignKey(ur => ur.RoleId);
+                    .HasForeignKey(ur => ur.RoleId)
+                    .OnDelete(DeleteBehavior.NoAction);
 
                 b.HasOne(ur => ur.OrganizationUnit)
                     .WithMany(r => r.OrganizationUnitRoles)
-                    .HasForeignKey(ur => ur.OrganizationUnitId);
+                    .HasForeignKey(ur => ur.OrganizationUnitId)
+                    .OnDelete(DeleteBehavior.NoAction);
             }));
         }
     }

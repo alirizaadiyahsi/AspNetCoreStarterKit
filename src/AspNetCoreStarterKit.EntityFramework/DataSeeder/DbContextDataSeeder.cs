@@ -29,7 +29,6 @@ namespace AspNetCoreStarterKit.EntityFramework.DataSeeder
         {
             if (_dbContext.Users.Any(u => u.UserName == AdminUserName)) return;
 
-            var userClaims = Permissions.GetAll().Select(permission => new UserClaim { ClaimType = CustomClaimTypes.Permission, ClaimValue = permission }).ToList();
             var adminUser = new User
             {
                 UserName = AdminUserName,
@@ -38,11 +37,14 @@ namespace AspNetCoreStarterKit.EntityFramework.DataSeeder
                 NormalizedUserName = AdminUserName.ToUpper(CultureInfo.GetCultureInfo("en-US")),
                 NormalizedEmail = AdminUserEmail.ToUpper(CultureInfo.GetCultureInfo("en-US")),
                 AccessFailedCount = 5,
-                PasswordHash = PasswordHashFor123Qwe,
-                UserClaims = userClaims
+                PasswordHash = PasswordHashFor123Qwe
             };
 
             _dbContext.Users.Add(adminUser);
+            _dbContext.SaveChanges();
+
+            var userClaims = Permissions.GetAll().Select(permission => new UserClaim { ClaimType = CustomClaimTypes.Permission, ClaimValue = permission, UserId = adminUser.Id}).ToList();
+            _dbContext.UserClaims.AddRange(userClaims);
             _dbContext.SaveChanges();
         }
 
@@ -50,16 +52,18 @@ namespace AspNetCoreStarterKit.EntityFramework.DataSeeder
         {
             if (_dbContext.Roles.Any(r => r.Name == AdminRoleName)) return;
 
-            var roleClaims = Permissions.GetAll().Select(permission => new RoleClaim { ClaimType = CustomClaimTypes.Permission, ClaimValue = permission }).ToList();
             var adminRole = new Role
             {
                 Name = AdminRoleName,
                 NormalizedName = AdminRoleName.ToUpper(CultureInfo.GetCultureInfo("en-US")),
-                IsSystemDefault = true,
-                RoleClaims = roleClaims
+                IsSystemDefault = true
             };
 
             _dbContext.Roles.Add(adminRole);
+            _dbContext.SaveChanges();
+
+            var roleClaims = Permissions.GetAll().Select(permission => new RoleClaim { ClaimType = CustomClaimTypes.Permission, ClaimValue = permission, RoleId = adminRole.Id}).ToList();
+            _dbContext.RoleClaims.AddRange(roleClaims);
             _dbContext.SaveChanges();
         }
 
