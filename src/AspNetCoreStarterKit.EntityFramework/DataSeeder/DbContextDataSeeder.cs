@@ -20,15 +20,16 @@ namespace AspNetCoreStarterKit.EntityFramework.DataSeeder
 
         public void SeedData()
         {
-            SeedRolesAndRoleClaims();
-            SeedUsersAndUserRolesAndUserClaims();
-            SeedUserRoles();
+            AdminRolesAndRoleClaims();
+            AdminUsersAndUserRolesAndUserClaims();
+            AdminUserRoles();
         }
 
-        private void SeedUsersAndUserRolesAndUserClaims()
+        private void AdminUsersAndUserRolesAndUserClaims()
         {
-            var userClaims = Permissions.GetAll().Select(permission => new UserClaim { ClaimType = CustomClaimTypes.Permission, ClaimValue = permission }).ToList();
+            if (_dbContext.Users.Any(u => u.UserName == AdminUserName)) return;
 
+            var userClaims = Permissions.GetAll().Select(permission => new UserClaim { ClaimType = CustomClaimTypes.Permission, ClaimValue = permission }).ToList();
             var adminUser = new User
             {
                 UserName = AdminUserName,
@@ -45,10 +46,11 @@ namespace AspNetCoreStarterKit.EntityFramework.DataSeeder
             _dbContext.SaveChanges();
         }
 
-        private void SeedRolesAndRoleClaims()
+        private void AdminRolesAndRoleClaims()
         {
-            var roleClaims = Permissions.GetAll().Select(permission => new RoleClaim { ClaimType = CustomClaimTypes.Permission, ClaimValue = permission }).ToList();
+            if (_dbContext.Roles.Any(r => r.Name == AdminRoleName)) return;
 
+            var roleClaims = Permissions.GetAll().Select(permission => new RoleClaim { ClaimType = CustomClaimTypes.Permission, ClaimValue = permission }).ToList();
             var adminRole = new Role
             {
                 Name = AdminRoleName,
@@ -61,10 +63,11 @@ namespace AspNetCoreStarterKit.EntityFramework.DataSeeder
             _dbContext.SaveChanges();
         }
 
-        private void SeedUserRoles()
+        private void AdminUserRoles()
         {
-            var adminRole = _dbContext.Roles.FirstOrDefault(r => r.Name == AdminRoleName);
             var adminUser = _dbContext.Users.FirstOrDefault(u => u.UserName == AdminUserName);
+            var adminRole = _dbContext.Roles.FirstOrDefault(r => r.Name == AdminRoleName);
+            if (_dbContext.UserRoles.Any(ur => ur.UserId == adminUser.Id && ur.RoleId == adminRole.Id)) return;
 
             var userRole = new UserRole
             {
