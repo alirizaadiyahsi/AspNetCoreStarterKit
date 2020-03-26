@@ -20,6 +20,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Filters;
 using System;
+using System.Linq;
 using System.Text;
 
 namespace AspNetCoreStarterKit.WebApi
@@ -53,14 +54,6 @@ namespace AspNetCoreStarterKit.WebApi
                     options.AddPolicy(permission,
                         policy => policy.Requirements.Add(new PermissionRequirement(permission)));
                 }
-            });
-
-            services.AddControllers(options =>
-            {
-                options.Filters.AddService<UnitOfWorkActionFilter>();
-            }).AddNewtonsoftJson(options =>
-            {
-                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
 
             services.AddCors(options =>
@@ -127,6 +120,16 @@ namespace AspNetCoreStarterKit.WebApi
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
             });
 
+            var mvcBuilder = services.AddControllers(options =>
+            {
+                options.Filters.AddService<UnitOfWorkActionFilter>();
+            }).AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
+
+            LoadModules(mvcBuilder);
+
             services.Configure<EmailSettings>(Configuration.GetSection(AppConfig.Email_Smtp));
             services.AddSingleton<IEmailSender, EmailSender>();
             services.ConfigureApplicationService();
@@ -156,6 +159,19 @@ namespace AspNetCoreStarterKit.WebApi
             {
                 endpoints.MapControllers();
             });
+        }
+
+        // todo: this is the easiest way to load assemblies
+        // this can be more generic
+        private static void LoadModules(IMvcBuilder mvcBuilder)
+        {
+            var moduleAssemblies = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(a => a.GetName().Name.Contains("AspNetCoreStarterKit.Module"));
+
+            foreach (var moduleAssembly in moduleAssemblies)
+            {
+                mvcBuilder.AddApplicationPart(moduleAssembly);
+            }
         }
     }
 }
