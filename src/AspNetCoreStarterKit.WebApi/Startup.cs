@@ -22,6 +22,7 @@ using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Linq;
 using System.Text;
+using AspNetCoreStarterKit.WebApi.Core.Configuration;
 
 namespace AspNetCoreStarterKit.WebApi
 {
