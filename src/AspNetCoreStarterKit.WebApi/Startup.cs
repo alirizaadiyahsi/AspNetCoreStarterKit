@@ -147,7 +147,7 @@ namespace AspNetCoreStarterKit.WebApi
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Nucleus API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Asp Net Core Starter Kit API V1");
             });
 
             app.UseCors(AppConfig.App_CorsOriginPolicyName);
