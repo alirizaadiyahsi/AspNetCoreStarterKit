@@ -8,13 +8,13 @@ namespace AspNetCoreStarterKit.EntityFramework.DataSeeder
     public class DbContextDataSeeder
     {
         private readonly AspNetCoreStarterKitDbContext _dbContext;
-        private const string AdminRoleName = "Admin";
+        public static string AdminRoleName = "Admin";
         public static string AdminUserName = "admin";
-        private const string AdminUserEmail = "admin@mail.com";
+        public static string AdminUserEmail = "admin@mail.com";
 
-        private const string MemberRoleName = "Member";
+        public static string MemberRoleName = "Member";
         public static string MemberUserName = "member";
-        private const string MemberUserEmail = "member@mail.com";
+        public static string MemberUserEmail = "member@mail.com";
 
         private const string PasswordHashFor123Qwe = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw=="; //123qwe
 

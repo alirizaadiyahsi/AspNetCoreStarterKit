@@ -4,7 +4,7 @@ using AspNetCoreStarterKit.Domain.StaticData.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace AspNetCoreStarterKit.Tests.Application.AuthorizationTests.PermissionAppServiceTests
+namespace AspNetCoreStarterKit.Tests.Application.Authorization
 {
     public class PermissionAppServiceTests : AppServiceTestBase
     {

@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Tests.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Tests.Shared", "test\AspNetCoreStarterKit.Tests.Shared\AspNetCoreStarterKit.Tests.Shared.csproj", "{5F3528A2-43C4-4A03-A345-3EF87B697279}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Tests.WebApi", "test\AspNetCoreStarterKit.Tests.WebApi\AspNetCoreStarterKit.Tests.WebApi.csproj", "{1AAD5263-11C3-4B88-92DB-6DBCA1464DAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{5F3528A2-43C4-4A03-A345-3EF87B697279}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F3528A2-43C4-4A03-A345-3EF87B697279}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F3528A2-43C4-4A03-A345-3EF87B697279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AAD5263-11C3-4B88-92DB-6DBCA1464DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AAD5263-11C3-4B88-92DB-6DBCA1464DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AAD5263-11C3-4B88-92DB-6DBCA1464DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AAD5263-11C3-4B88-92DB-6DBCA1464DAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{7BC774FA-E5FF-43F4-B61D-DD6B47560D17} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
 		{641F5293-5E7E-45F6-817D-7EEC76FDE002} = {1BDCEA17-B489-44FD-BB41-21010BCA3DF7}
 		{5F3528A2-43C4-4A03-A345-3EF87B697279} = {1BDCEA17-B489-44FD-BB41-21010BCA3DF7}
+		{1AAD5263-11C3-4B88-92DB-6DBCA1464DAA} = {1BDCEA17-B489-44FD-BB41-21010BCA3DF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65DE3DF4-9F06-412D-9C6D-2D9FF14C9FB4}
