@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AspNetCoreStarterKit.Application.Authorization.Permissions;
 using AspNetCoreStarterKit.Domain.StaticData.Authorization;
@@ -42,7 +40,7 @@ namespace AspNetCoreStarterKit.Tests.WebApi.Authentication
             var permissionHandler = new PermissionHandler(permissionAppService);
             await permissionHandler.HandleAsync(authorizationHandlerContext);
 
-            Assert.True(authorizationHandlerContext.HasFailed);
+            Assert.False(authorizationHandlerContext.HasSucceeded);
         }
     }
 }

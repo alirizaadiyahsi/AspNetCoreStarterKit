@@ -128,12 +128,12 @@ namespace AspNetCoreStarterKit.EntityFramework.DataSeeder
         private void InitializeMemberUserRoles()
         {
             var memberUser = _dbContext.Users.FirstOrDefault(u => u.UserName == MemberUserName);
-            var membeRole = _dbContext.Roles.FirstOrDefault(r => r.Name == MemberRoleName);
-            if (_dbContext.UserRoles.Any(ur => ur.UserId == memberUser.Id && ur.RoleId == membeRole.Id)) return;
+            var memberRole = _dbContext.Roles.FirstOrDefault(r => r.Name == MemberRoleName);
+            if (_dbContext.UserRoles.Any(ur => ur.UserId == memberUser.Id && ur.RoleId == memberRole.Id)) return;
 
             var userRole = new UserRole
             {
-                Role = membeRole,
+                Role = memberRole,
                 User = memberUser
             };
 
