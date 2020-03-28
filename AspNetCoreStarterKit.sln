@@ -15,9 +15,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreStarterKit.Entity
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreStarterKit.WebApi", "src\AspNetCoreStarterKit.WebApi\AspNetCoreStarterKit.WebApi.csproj", "{B43AACC2-99E8-47F2-A9B1-E38E1AFF5A5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Module.Core", "src\modules\AspNetCoreStarterKit.Module.Core\AspNetCoreStarterKit.Module.Core.csproj", "{61AB4D2F-C989-4F1C-9E61-B370C1D5BE98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreStarterKit.Module.Core", "src\modules\AspNetCoreStarterKit.Module.Core\AspNetCoreStarterKit.Module.Core.csproj", "{61AB4D2F-C989-4F1C-9E61-B370C1D5BE98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.WebApi.Core", "src\AspNetCoreStarterKit.WebApi.Core\AspNetCoreStarterKit.WebApi.Core.csproj", "{7BC774FA-E5FF-43F4-B61D-DD6B47560D17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreStarterKit.WebApi.Core", "src\AspNetCoreStarterKit.WebApi.Core\AspNetCoreStarterKit.WebApi.Core.csproj", "{7BC774FA-E5FF-43F4-B61D-DD6B47560D17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1BDCEA17-B489-44FD-BB41-21010BCA3DF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Tests.Application", "test\AspNetCoreStarterKit.Tests.Application\AspNetCoreStarterKit.Tests.Application.csproj", "{641F5293-5E7E-45F6-817D-7EEC76FDE002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreStarterKit.Tests.Shared", "test\AspNetCoreStarterKit.Tests.Shared\AspNetCoreStarterKit.Tests.Shared.csproj", "{5F3528A2-43C4-4A03-A345-3EF87B697279}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +55,14 @@ Global
 		{7BC774FA-E5FF-43F4-B61D-DD6B47560D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BC774FA-E5FF-43F4-B61D-DD6B47560D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BC774FA-E5FF-43F4-B61D-DD6B47560D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{641F5293-5E7E-45F6-817D-7EEC76FDE002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{641F5293-5E7E-45F6-817D-7EEC76FDE002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{641F5293-5E7E-45F6-817D-7EEC76FDE002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{641F5293-5E7E-45F6-817D-7EEC76FDE002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F3528A2-43C4-4A03-A345-3EF87B697279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F3528A2-43C4-4A03-A345-3EF87B697279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F3528A2-43C4-4A03-A345-3EF87B697279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F3528A2-43C4-4A03-A345-3EF87B697279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +75,8 @@ Global
 		{B43AACC2-99E8-47F2-A9B1-E38E1AFF5A5A} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
 		{61AB4D2F-C989-4F1C-9E61-B370C1D5BE98} = {15228815-0810-45A0-B61A-855377924346}
 		{7BC774FA-E5FF-43F4-B61D-DD6B47560D17} = {0F45BD45-77DB-41B3-B8A5-200803488D9B}
+		{641F5293-5E7E-45F6-817D-7EEC76FDE002} = {1BDCEA17-B489-44FD-BB41-21010BCA3DF7}
+		{5F3528A2-43C4-4A03-A345-3EF87B697279} = {1BDCEA17-B489-44FD-BB41-21010BCA3DF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65DE3DF4-9F06-412D-9C6D-2D9FF14C9FB4}
