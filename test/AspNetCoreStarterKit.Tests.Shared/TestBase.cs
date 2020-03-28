@@ -15,6 +15,8 @@ namespace AspNetCoreStarterKit.Tests.Shared
 {
     public class TestBase
     {
+        // TODO: There are still problems about lifecycle of test server
+        // Some of tests are not working as standalone properly
         protected IServiceProvider GetNewHostServiceProvider()
         {
             return GetTestServer().Services;
