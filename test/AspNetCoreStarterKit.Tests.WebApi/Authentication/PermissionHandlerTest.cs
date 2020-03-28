@@ -18,7 +18,7 @@ namespace AspNetCoreStarterKit.Tests.WebApi.Authentication
 
         public PermissionHandlerTest()
         {
-            _serviceProvider = GetServiceProvider();
+            _serviceProvider = GetNewHostServiceProvider();
             var dbContext = _serviceProvider.GetRequiredService<AspNetCoreStarterKitDbContext>();
             new DbContextDataSeeder(dbContext).SeedData();
         }

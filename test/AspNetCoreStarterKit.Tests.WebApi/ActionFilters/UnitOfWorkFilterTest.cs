@@ -21,7 +21,7 @@ namespace AspNetCoreStarterKit.Tests.WebApi.ActionFilters
 
         public UnitOfWorkFilterTest()
         {
-            _serviceProvider = GetServiceProvider();
+            _serviceProvider = GetNewHostServiceProvider();
             _dbContext = _serviceProvider.GetRequiredService<AspNetCoreStarterKitDbContext>();
         }
 

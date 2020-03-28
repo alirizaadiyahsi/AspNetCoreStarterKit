@@ -14,7 +14,7 @@ namespace AspNetCoreStarterKit.Tests.Application.Authorization
 
         public PermissionAppServiceTests()
         {
-            var serviceProvider = GetServiceProvider();
+            var serviceProvider = GetNewHostServiceProvider();
             var dbContext = serviceProvider.GetRequiredService<AspNetCoreStarterKitDbContext>();
             new DbContextDataSeeder(dbContext).SeedData();
             _permissionAppService = serviceProvider.GetRequiredService<IPermissionAppService>();
