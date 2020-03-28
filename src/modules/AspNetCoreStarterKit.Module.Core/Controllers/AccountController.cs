@@ -91,7 +91,7 @@ namespace AspNetCoreStarterKit.Module.Core.Controllers
             var subject = "Confirm your email.";
             var message = $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>{callbackUrl}</a>";
 
-            await _emailSender.SendEmailAsync(applicationUser.Email, subject, message);
+            //await _emailSender.SendEmailAsync(applicationUser.Email, subject, message);
 
             return Ok(new RegisterOutput { ResetToken = confirmationToken });
         }
@@ -125,6 +125,7 @@ namespace AspNetCoreStarterKit.Module.Core.Controllers
             return Ok();
         }
 
+        // TODO: Get user by only e-mail not user name
         [HttpPost("/api/[action]")]
         public async Task<ActionResult<ForgotPasswordOutput>> ForgotPassword([FromBody] ForgotPasswordInput input)
         {
@@ -136,7 +137,7 @@ namespace AspNetCoreStarterKit.Module.Core.Controllers
             var subject = "Reset your password.";
             var message = $"Please reset your password by clicking this link: <a href='{callbackUrl}'>{callbackUrl}</a>";
 
-            await _emailSender.SendEmailAsync(user.Email, subject, message);
+            //await _emailSender.SendEmailAsync(user.Email, subject, message);
 
             return Ok(new ForgotPasswordOutput { ResetToken = resetToken });
         }

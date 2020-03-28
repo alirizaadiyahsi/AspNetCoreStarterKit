@@ -17,7 +17,7 @@ namespace AspNetCoreStarterKit.Tests.Shared
     {
         protected IServiceProvider GetNewHostServiceProvider()
         {
-            return GetTestServer().Host.Services.CreateScope().ServiceProvider;
+            return GetTestServer().Services;
         }
 
         protected TestServer GetTestServer()
