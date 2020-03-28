@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
 using AspNetCoreStarterKit.Application.Authorization.Permissions;
 using AspNetCoreStarterKit.Domain.StaticData.Authorization;
+using AspNetCoreStarterKit.EntityFramework;
+using AspNetCoreStarterKit.EntityFramework.DataSeeder;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
@@ -12,7 +14,10 @@ namespace AspNetCoreStarterKit.Tests.Application.Authorization
 
         public PermissionAppServiceTests()
         {
-            _permissionAppService = TestServiceProvider.GetRequiredService<IPermissionAppService>();
+            var serviceProvider = GetServiceProvider();
+            var dbContext = serviceProvider.GetRequiredService<AspNetCoreStarterKitDbContext>();
+            new DbContextDataSeeder(dbContext).SeedData();
+            _permissionAppService = serviceProvider.GetRequiredService<IPermissionAppService>();
         }
 
         [Fact]

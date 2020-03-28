@@ -15,20 +15,32 @@ namespace AspNetCoreStarterKit.Tests.Shared
 {
     public class TestBase
     {
-        protected readonly AspNetCoreStarterKitDbContext DbContext;
-        protected readonly IServiceProvider TestServiceProvider;
-
-        public TestBase()
+        protected IServiceProvider GetServiceProvider()
         {
-            TestServiceProvider = TestServer.Host.Services;
-            DbContext = TestServiceProvider.GetRequiredService<AspNetCoreStarterKitDbContext>();
-            DbContext.Database.EnsureCreated();
-            new DbContextDataSeeder(DbContext).SeedData();
+            return GetTestServer().Host.Services.CreateScope().ServiceProvider;
         }
 
-        protected IServiceProvider GetNewScopeTestServiceProvider()
+        protected TestServer GetTestServer()
         {
-            return TestServiceProvider.CreateScope().ServiceProvider;
+            return new TestServer(
+                new WebHostBuilder()
+                    .UseStartup<Startup>()
+                    .UseEnvironment("Test")
+                    .ConfigureServices(services =>
+                    {
+                        services.AddDbContext<AspNetCoreStarterKitDbContext>(options =>
+                        {
+                            options.UseInMemoryDatabase("AspNetCoreStarterKit")
+                                .UseLazyLoadingProxies()
+                                .EnableSensitiveDataLogging();
+                        });
+                    })
+                    .ConfigureAppConfiguration(config =>
+                    {
+                        config.SetBasePath(Path.Combine(Path.GetFullPath(@"../../../.."), "AspNetCoreStarterKit.Tests.Shared"));
+                        config.AddJsonFile("appsettings.json", false);
+                    })
+            );
         }
 
         protected static ClaimsPrincipal ContextAdminUser => new ClaimsPrincipal(
@@ -49,26 +61,6 @@ namespace AspNetCoreStarterKit.Tests.Shared
                 },
                 "TestAuthenticationType"
             )
-        );
-
-        protected static TestServer TestServer => new TestServer(
-            new WebHostBuilder()
-                .UseStartup<Startup>()
-                .UseEnvironment("Test")
-                .ConfigureServices(services =>
-                {
-                    services.AddDbContext<AspNetCoreStarterKitDbContext>(options =>
-                    {
-                        options.UseInMemoryDatabase("AspNetCoreStarterKit")
-                            .UseLazyLoadingProxies()
-                            .EnableSensitiveDataLogging();
-                    });
-                })
-                .ConfigureAppConfiguration(config =>
-                {
-                    config.SetBasePath(Path.Combine(Path.GetFullPath(@"../../../.."), "AspNetCoreStarterKit.Tests.Shared"));
-                    config.AddJsonFile("appsettings.json", false);
-                })
         );
     }
 }

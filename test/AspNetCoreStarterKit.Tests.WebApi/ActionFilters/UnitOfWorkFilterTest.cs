@@ -16,6 +16,15 @@ namespace AspNetCoreStarterKit.Tests.WebApi.ActionFilters
 {
     public class UnitOfWorkFilterTest : ApiTestBase
     {
+        private readonly AspNetCoreStarterKitDbContext _dbContext;
+        private readonly IServiceProvider _serviceProvider;
+
+        public UnitOfWorkFilterTest()
+        {
+            _serviceProvider = GetServiceProvider();
+            _dbContext = _serviceProvider.GetRequiredService<AspNetCoreStarterKitDbContext>();
+        }
+
         [Fact]
         public async Task Should_UnitOfWork_Action_Filter_Save_Changes()
         {
@@ -25,7 +34,7 @@ namespace AspNetCoreStarterKit.Tests.WebApi.ActionFilters
                 Name = "TestRole_" + Guid.NewGuid()
             };
 
-            var unitOfWorkActionFilter = new UnitOfWorkActionFilter(DbContext);
+            var unitOfWorkActionFilter = new UnitOfWorkActionFilter(_dbContext);
             var actionContext = new ActionContext(
                 new DefaultHttpContext
                 {
@@ -39,9 +48,9 @@ namespace AspNetCoreStarterKit.Tests.WebApi.ActionFilters
             );
 
             var actionExecutedContext = new ActionExecutedContext(actionContext, new List<IFilterMetadata>(), null);
-            await DbContext.Roles.AddAsync(testRole);
+            await _dbContext.Roles.AddAsync(testRole);
 
-            var dbContextFromAnotherScope = GetNewScopeTestServiceProvider().GetRequiredService<AspNetCoreStarterKitDbContext>();
+            var dbContextFromAnotherScope = _serviceProvider.CreateScope().ServiceProvider.GetRequiredService<AspNetCoreStarterKitDbContext>();
             var insertedTestRole = await dbContextFromAnotherScope.Roles.FindAsync(testRole.Id);
             Assert.Null(insertedTestRole);
 
